@@ -16,7 +16,7 @@
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <UseIISExpress>true</UseIISExpress>
     <Use64BitIISExpress />
-    <IISExpressSSLPort />
+    <IISExpressSSLPort>44396</IISExpressSSLPort>
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
@@ -68,9 +68,14 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Web.config" />
+    <Content Include="WebService.asmx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="WebService.asmx.cs">
+      <DependentUpon>WebService.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -96,7 +101,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>62881</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:57885/</IISUrl>
+          <IISUrl>https://localhost:44396/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>
