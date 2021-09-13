@@ -16,22 +16,22 @@ namespace Web
     // [System.Web.Script.Services.ScriptService]
     public class WebService : System.Web.Services.WebService
     {
-       /* private readonly IUnitOfWork unitOfWork;
+       private readonly IUnitOfWork unitOfWork;
 
+        public WebService(){ }
         public WebService(IUnitOfWork unitOfWork)
         {
-          //  this.unitOfWork = unitOfWork;
-        }*/
+         this.unitOfWork = unitOfWork;
+        }
         [WebMethod]
         public string HelloWorld()
         {
             return "Привет всем!";
         }
         [WebMethod]
-        public Task<IReadOnlyList<Service>> Go()
+        public async Task<IReadOnlyList<Service>> GetAll()
         {
-            //List<Int32> list = new List<Int32>();
-            var data = unitOfWork.Services.GetAllAsync();
+            var data = await unitOfWork.Services.GetAllAsync(); 
             return data;
         }
     }
