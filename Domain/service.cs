@@ -4,9 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Persistence
+namespace Domain
 {
-    public class Class1
+    public class Service
     {
+        public Int32 Id { get; set; }
+        public String Name { get; set; }
     }
 }

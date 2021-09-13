@@ -1,7 +1,7 @@
-﻿using System;
+﻿using Application.Interfaces;
+using Domain;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+using System.Threading.Tasks;
 using System.Web.Services;
 
 namespace Web
@@ -16,21 +16,23 @@ namespace Web
     // [System.Web.Script.Services.ScriptService]
     public class WebService : System.Web.Services.WebService
     {
+       /* private readonly IUnitOfWork unitOfWork;
 
+        public WebService(IUnitOfWork unitOfWork)
+        {
+          //  this.unitOfWork = unitOfWork;
+        }*/
         [WebMethod]
         public string HelloWorld()
         {
             return "Привет всем!";
         }
         [WebMethod]
-        public List<Int32> go(Int32 n)
+        public Task<IReadOnlyList<Service>> Go()
         {
-            List<Int32> list = new List<Int32>();
-            for (Int32 i = 0; i < n; i++) 
-            {
-                list.Add(i);
-            }
-            return list;
+            //List<Int32> list = new List<Int32>();
+            var data = unitOfWork.Services.GetAllAsync();
+            return data;
         }
     }
 }
